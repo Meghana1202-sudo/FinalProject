@@ -1,0 +1,99 @@
+<body>
+      <nav class="navbar navbar-expand-lg fixed-top navbar-dark " style="background-color: lightseagreen;">
+        <a class="logo"><img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTRLLSR9J8wTxADu6CsRsAW29uwJGaEX4LReA&usqp=CAU" height="50px"></a>
+        <a class="navbar-brand">SBI Loans</a>
+      
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarNav">
+            <ul class="navbar-nav  active">
+      
+              <div class="dropdown">
+                <button class="btn " routerLink="home" style="color: white;" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                  HOME
+                </button>
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                  <a class="dropdown-item" routerLink="login">Login</a>
+                  <!-- <a class="dropdown-item" routerLink="lad">LAD</a>  -->
+                  <a class="dropdown-item" routerLink="makeloan">Make Loan</a>
+                  <a class="dropdown-item" routerLink="formstatus">Loan Status</a>
+                   <a class="dropdown-item" routerLink="changepassword">Change Password</a>
+                </div>  
+              </div>
+      
+              <li class="nav-item active">
+                <a class="nav-link" routerLink="news">NEWS</a>
+              </li>&nbsp;
+              <li class="nav-item active">
+                <a class="nav-link" routerLink="service">SERVICE</a>
+              </li>&nbsp;
+              
+              <li class="nav-item active">
+                  <a class="nav-link"routerLink="aboutus">ABOUTUS</a>
+                </li>
+                &nbsp;
+                <li class="navbar-nav active">
+                  <a class="nav-link" routerLink="contactus">CONTACTUS</a>
+                </li>&nbsp;
+                <li class="nav-item active">
+                  <a class="nav-link" routerLink="register">REGISTER</a>
+                 </li>
+                
+                <!-- <li class="nav-item active" >
+                  <a class="nav-link" routerLink="addloan">ADD LOAN</a>
+                 </li> -->
+                
+                 <li class="nav-item active"  *ngIf="customer">
+                  <a class="nav-link" routerLink="searchloantype">SEARCH LOAN</a>
+                </li>
+      
+                <li class="nav-item active"  *ngIf='isLad()' >
+                  <a class="nav-link" routerLink="searchloantype">LOAN TYPES</a>
+                </li>
+                <li class="nav-item active" *ngIf= 'isCustomer()'>
+                  <a class="nav-link" routerLink="makeloan">MAKE LAON</a>
+                </li>&nbsp;:&nbsp;
+      
+                <li class="nav-item active"  *ngIf='isCustomer()' >
+                  <a class="nav-link" routerLink="formstatus">FORM STATUS</a>
+                </li>&nbsp;
+                
+                <li class="nav-item active" *ngIf='isAdmin()' >
+                  <a class="nav-link" routerLink="formstatus">FORM STATUS</a>
+                </li>&nbsp; 
+              
+                <li class="nav-item active" *ngIf='isLad()'>
+                  <a class="nav-link" routerLink="viewstatus">REQUEST'S</a>
+                </li>&nbsp;
+                <li class="nav-item active" *ngIf='isLad()'>
+                  <a class="nav-link" routerLink="viewloans">DETAILS</a>
+                </li>&nbsp;
+                <li class="nav-item active"   *ngIf='isLad()'>
+                  <a class="nav-link" routerLink="formstatus">FORMSTATUS</a>
+                </li>&nbsp;
+      
+                <li class="nav-item active" *ngIf='isAdmin()' >
+                  <a class="nav-link" routerLink="admin">UPDATE</a>
+                </li>
+                &nbsp;
+              
+                </ul>
+                <ul class="navbar-nav ml-auto" >
+                  <li class="nav-item active" *ngIf='!isLoggedIn()'>
+                  <a class="nav-link" routerLink="login">
+         <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" style="width:30px">Login </a>
+                 <li>
+                  <li class="nav-item active" *ngIf='isLoggedIn()'>
+                    <a class="nav-link" (click)='logout()' >
+          
+                      <img src="https://s3.eu-central-1.amazonaws.com/bootstrapbaymisc/blog/24_days_bootstrap/fox.jpg" style="width:30px" >
+                   logout </a>
+                   <li>
+            </ul>
+          </div>
+      
+        </nav>
+        </body>
+  
+<router-outlet></router-outlet>    

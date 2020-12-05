@@ -1,0 +1,93 @@
+<br>
+<br>
+<br>
+<body>
+<h4 class="mt-5 mb-5 col-md-4 text-center text-success bg-dark" *ngIf="message">{{message}}</h4>
+
+<h2 style="text-align: center;color: black;background-color:wheat">LoanType Details</h2>
+
+<div class="mt-4 mb-5 col-md-4 offset-4 float-right ">
+  <input type="search" name="search" id="search" placeholder="Enter Name Search" [(ngModel)]="search" class="form-control">
+</div>
+<div class="col-md-3 offset-3">
+  
+</div>
+
+<table class="table book-class table-bordered table-striped table-light mt-2 mb-5 col-md-8 offset-2">
+    <thead>
+      <tr>
+        <th scope="col">LOANTYPE</th>
+        <th scope="col">DURATION(yrs)</th>
+        <th scope="col">RATEOFINTEREST(%)</th>
+        <th scope="col">LOANAMOUNT(₹)</th>
+        <th scope="col">UPDATE</th>
+        &nbsp; &nbsp;
+        <th scope="col">DELETE</th>
+      </tr>
+    </thead>
+    <tbody style="text-align: center;">
+      <tr *ngFor="let loan of Loans.loantype | filter: search">
+      
+          <td scope="row">{{loan.loanType}}</td>
+          <td>{{loan.duration}}/yr</td>
+          <td>{{loan.rateOfInterest}}%</td>
+          <td>Rs-/{{loan.loanAmount}}</td>
+          <td><button class="btn btn-success" data-toggle="modal" data-target="#exampleModal"
+            (click)="updateLoanType(loan)">update</button></td>
+            &nbsp; &nbsp;
+            
+
+            <td><button class="btn btn-danger"
+              (click)="deleteLoanType(loan.id)">delete</button></td>  
+      </tr>
+    </tbody>
+  </table>
+  <div class="modal" *ngIf="selectedType" tabindex="-1" role="dialog" id="exampleModal">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title">update LoanType</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+  
+          <div class="mt-1 card card-body mb-1">
+            <form action="" #form="ngForm" (ngSubmit)="editType(form)">
+              <h1 class="text-center bg-dark text-danger">Update LoanType</h1>
+              <input type="hidden" name="id" #id="ngModel" ngModel [(ngModel)]="selectedType.id">
+              <div class="form-group">
+                <input type="text" name="loanType" id="loanType" #loanType="ngModel" placeholder="Enter loanType Name" ngModel class="form-control" required>
+                <div *ngIf="loanType.touched && loanType.invalid">
+                    <p class="text-danger" *ngIf="loanType.errors.required">* This Field is Required</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="number" name="duration" id="duration" #duration="ngModel" placeholder="Enter the duration" ngModel class="form-control" required>
+                <div *ngIf="duration.touched && duration.invalid">
+                    <p class="text-danger" *ngIf="duration.errors.required">* This Field is Required</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="number" name="rateOfInterest" id="rateOfInterest" #rateOfInterest="ngModel" placeholder="Enter rateOfInterest" ngModel class="form-control" required>
+                <div *ngIf="rateOfInterest.touched &&rateOfInterest.invalid">
+                    <p class="text-danger" *ngIf="rateOfInterest.errors.required">* This Field is Required</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="number" name="loanAmount" id="loanAmount" #loanAmount="ngModel" placeholder="Enter loanAmount" ngModel class="form-control" required>
+                <div *ngIf="loanAmount.touched && loanAmount.invalid">
+                    <p class="text-danger" *ngIf="loanAmount.errors.required">* This Field is Required</p>
+                </div>
+            </div> 
+            <div class="form-group">
+                <button type="submit" class="btn btn-outline-success float-right" [disabled]="form.invalid">update</button>
+            </div>
+     </form>
+          </div>
+        </div>
+       </div>
+    </div>
+  </div>   
+</body>

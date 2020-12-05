@@ -1,0 +1,137 @@
+<body>
+    <div class="jumbotron jumbotron-sm" style="margin-top: 30px;"> 
+            <div class="card">
+                <div class="card-header">
+                    <div class="col-sm-12 col-lg-12">
+                        <h1 class="h1" style="text-align: center;">
+                            Loan Application Form </h1>
+                    </div>
+                </div> 
+        <div class="container">
+            <div class="alert alert-info" role="alert" *ngIf='isAdded'>
+                Application Form submitted successfully !!
+            </div>
+            <div class="card-body">
+                <div class="col-md-8">
+                    <div class="">
+                        <form [formGroup]='productForm' (ngSubmit)='onSubmit()'>
+                            <div class="form-row">
+                                <div class="col-md-12">
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="name ">Name</label>
+                                            <input type="text" class="form-control" name="customerName" id="name"
+                                                formControlName='customerName' pattern="[A-Za-z0-9]*">
+                                            <div style="color:red;"
+                                                *ngIf="productForm.get('customerName').touched && productForm.get('customerName').dirty && productForm.get('customerName').value.length < 4 ">
+                                                Enter your name</div>
+                                        </div>
+                                        <div class="form-group col-md-6" style="padding-left: 30px;">
+                                            <label for="quantity">Mobile Number</label>
+                                            <input type="text" class="form-control" name="phonenumber"
+                                                formControlName='phoneNumber'>
+                                            <div style="color:black;"
+                                                *ngIf="productForm.get('phoneNumber').touched && productForm.get('phoneNumber').dirty && productForm.get('phoneNumber').value.length ==''">
+                                                Enter your mobile number</div>
+                                            <div style="color:black;"
+                                                *ngIf="productForm.get('phoneNumber').value.length > 10 ">Invalid mobile number</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-group">
+    
+                                        <label for="imageUrl">Gender</label><br>
+                                        <input type="radio" name="gender" value="male" required formControlName="gender">
+                                        Male
+                                        <input type="radio" name="gender" value="female" formControlName="gender"> Female
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6">
+                                            <label for="quantity">Date of Birth</label>
+                                            <input type="date" class="form-control" name="dateofbirth"
+                                                formControlName='dateofbirth' required>
+                                        </div> 
+                                        <div class="form-group col-md-6">
+                                            <label for="name ">Email Id</label>
+                                            <input type="email" class="form-control" name="emailId" id="email"
+                                                formControlName='emailId'>
+                                            <div style="color:black;"
+                                                *ngIf="productForm.get('emailId').touched && productForm.get('emailId').dirty  && productForm.get('emailId').value.length ==''">
+                                                Enter your Email</div>
+                                            <div style="color:black;" *ngIf="emailId.errors?.emailId">Not a Valid email address
+                                            </div>
+                                        </div>
+                                    </div>
+    
+                                    <div class="form-group">
+                                        <label >Address</label>
+                                        <textarea class="form-control" name="address"  formControlName='address' rows="3" placeholder="Enter complete address"></textarea>
+                                        <div style="color:black;" *ngIf="productForm.get('address').touched && productForm.get('address').dirty && productForm.get('address').value.length < 8">address must be minimum 8 characters</div>
+                        
+                                    </div>
+                                    <div class="form-row">
+                                        <div class="form-group col-md-6 ">
+                                            <label for="price">Occuapation</label>
+                                            <input type="text" class="form-control" name="occupation"
+                                                formControlName='occupation' pattern="[0-9]*">
+                                            <div style="color:black;"
+                                                *ngIf="productForm.get('occupation').touched && productForm.get('occupation').dirty && productForm.get('occupation').value.length < 4">  occupation must be minimum 4 characters</div>
+    
+                                        </div>
+    
+                                        <div class="form-group col-md-6">
+                                            <label>Annual Income</label>
+                                            <input type="text" class="form-control" name="annualIncome"
+                                                formControlName='annualIncome'>
+                                            <div style="color:black;"
+                                                *ngIf="productForm.get('annualIncome').touched && productForm.get('annualIncome').dirty && productForm.get('annualIncome').value.length < 3">
+                                                Enter Anual Income</div>
+                                        </div>
+                                    </div>
+                                    <div class="form-row">
+    
+                                        <div class="form-group col-md-6">
+                                            <label > Assurer Name</label>
+                                            <input type="text" class="form-control" name="assurerName"  formControlName='assurerName'>
+                                            <div style="color:black;" *ngIf="productForm.get('assurerName').touched && productForm.get('assurerName').dirty && productForm.get('assurerName').value.length < 4 && productForm.get('assurerName').value.length==''">Enter assurer name.</div>
+                            
+                                        </div>
+                                        <div class="form-group col-md-6 ">
+                                            <label >Assurer Mobile Number</label>
+                                            <input type="text" class="form-control" name="assurerContactNumber" formControlName='assurerContactNumber' pattern="[0-9]*">
+                                            <div style="color:black;" *ngIf="productForm.get('assurerContactNumber').touched && productForm.get('assurerContactNumber').dirty && productForm.get('assurerContactNumber').value.length==''">Enter mobile number.</div>
+                                            <div style="color:black;" *ngIf="productForm.get('assurerContactNumber').value.length > 10">Invalid phone number</div>
+                                        </div>
+                                        </div>
+                                    <div class="form-group">
+                                        <label > Assurer Address</label>
+                                        <textarea class="form-control" name="assurerAddress" placeholder="Enter complete address" formControlName='assurerAddress' rows="3"></textarea>
+                                        <div style="color:black;" *ngIf="productForm.get('assurerAddress').touched && productForm.get('assurerAddress').dirty && productForm.get('assurerAddress').value.length < 4">Address should be minimum of 10 characters</div>
+                        
+                                    </div>
+                                    <div class="form-row">
+                        
+                                        <div class="form-group col-md-6">
+                                            <label >Loan Type</label>
+                                            <input type="text" class="form-control" name="loanType"  formControlName='loanType'>
+                                            <div style="color:black;" *ngIf="productForm.get('loanType').touched && productForm.get('loanType').dirty && productForm.get('loanType').value.length >=10">Enter type of loan</div>
+                        
+                        
+                                        </div>
+                                        <div class="form-group col-md-6 ">
+                                            <label >Loan Amount</label>
+                                            <input type="text" class="form-control" name="loanAmount" formControlName='loanAmount' >
+                                            <div style="color:black;" *ngIf="productForm.get('loanAmount').touched && productForm.get('loanAmount').dirty && productForm.get('loanAmount').value.length < 3">Provide loan amount.</div>
+                                        </div>
+                                        </div>
+                                    <button type="submit" class="btn btn-primary" style="margin-right:16px;margin-bottom: 10px;">SUBMIT</button>
+                                    <button type="reset" class="btn btn-danger"style="margin-right:16px;margin-bottom: 10px;">RESET</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+    </div>
+        </div>        </div>
+    </body>
+    

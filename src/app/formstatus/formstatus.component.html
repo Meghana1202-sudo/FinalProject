@@ -1,0 +1,26 @@
+<br>
+<br>
+<br>
+<body>
+
+<h4 class="mt-5 mb-5 col-md-4 text-center text-success bg-dark" *ngIf="msg">{{msg}}</h4>
+<h2 style="text-align: center;color: black;background-color: white">Customer Status</h2>
+<table class="table book-class table-bordered table-striped table-light mt-5 mb-5 col-md-6 offset-3 float-center">
+    <thead style="color:black">
+      <tr>
+        <th style="text-align: center;">APPLICATION ID</th>
+        <th style="text-align: center;">STATUS</th>
+        <th style="text-align: center;">INTERVIEW DATE</th>
+      </tr>
+    </thead>
+    <tbody style="text-align: center;">
+        <tr *ngFor='let loan of Loans.customer'>
+            <td style="text-align: center;">{{loan.applicationId}}</td>
+            <td style="text-align: center;  background-color:khaki;color: red;" >{{loan.status}}</td>
+            <td style="text-align: center;">{{loan.interviewDate}}</td>
+           </tr>
+    </tbody>
+  </table>
+  </body>
+ 
+ 

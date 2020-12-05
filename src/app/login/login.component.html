@@ -1,0 +1,34 @@
+
+<br>
+<br>
+<br>
+<body>
+<form #loginForm='ngForm' (ngSubmit)='login(loginForm)' class="form-container mt-5" >
+       <h3 style="text-align: center;">Login</h3>                    
+    <div class="group">
+    <input type="email" name='email' id="email" class="form-control"  #email='ngModel' placeholder="Email" ngModel class="form-control" required>
+    <div *ngIf='email.touched && email.invalid'>
+    <div *ngIf="email.errors.required">
+    <small style="color: red;">*This field cannot be empty</small>
+    </div>
+     <div *ngIf="email.errors.email">
+     <small style="color: red;">*This field accepts only email</small>
+    </div>
+    </div>
+    </div>
+    <div class="group">
+        <input type="password" name='password' id="password" class="form-control"  #password='ngModel' placeholder="Password" ngModel class="form-control mb-3" required >
+        <div *ngIf='password.touched && password.invalid'>
+         <div *ngIf="password.errors.required">
+         <small style="color: red;">*This field cannot be empty</small>
+          </div>
+           <div *ngIf="password.errors.minilength">
+           <small style="color: red;">*This field accepts atleast 8 character</small>
+         </div>
+    </div>
+    </div>
+    <button class="btn-block btn-material" type="submit" [disabled]='loginForm.invalid'>Login
+        <div class="ripples buttonRipples"><span class="ripplesCircle"></span></div>
+    </button>
+</form>
+</body>

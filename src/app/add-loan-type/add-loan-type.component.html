@@ -1,0 +1,51 @@
+<br>
+<br>
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive contactUs page</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css"
+     integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+</head>
+<body style="text-align: center;">
+    <section class="contact float-center" >
+    <div class="contactForm">
+        <h2>Add Loan Type</h2>
+        <form action="" #form="ngForm" (ngSubmit)="addLoans(form)">
+     
+            <div class="form-group">
+                
+                <input type="text" name="loanType" id="loanType" #loanType="ngModel" placeholder="Enter loan type" ngModel class="form-control" required>
+            <div *ngIf="loanType.touched && loanType.invalid">
+                <p class="text-danger" *ngIf="loanType.errors.required">* This Field is Required</p>
+            </div>
+            </div>
+            <div class="form-group">
+                <input type="number" name="duration" id="duration" #duration="ngModel" placeholder="Enter duration" ngModel class="form-control" required>
+                <div *ngIf="duration.touched && duration.invalid">
+                    <p class="text-danger" *ngIf="duration.errors.required">* This Field is Required</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="number" name="rateOfInterest" id="rateOfInterest" #rateOfInterest="ngModel" placeholder="Enter rate of Interests" ngModel class="form-control" required>
+                <div *ngIf="rateOfInterest.touched && rateOfInterest.invalid">
+                    <p class="text-danger" *ngIf="rateOfInterest.errors.required">* This Field is Required</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="number" name="loanAmount" id="loanAmount" #loanAmount="ngModel" placeholder="Enter loan amount" ngModel class="form-control" required>
+                <div *ngIf="loanAmount.touched && loanAmount.invalid">
+                    <p class="text-danger" *ngIf="loanAmount.errors.required">* This Field is Required</p>
+                </div>
+            </div>
+            <div class="form-group">
+                <input type="submit" name="" value="Send"  [disabled]="form.invalid"  class="btn btn-outline-success float-right">
+            </div>
+    </form>
+    </div> 
+</section>
+</body>
+</html>

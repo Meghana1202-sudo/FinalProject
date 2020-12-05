@@ -1,0 +1,13 @@
+body {
+    font-family: Arial;
+    font-size: 17px;
+    
+      margin: 0;
+      padding: 1px;
+         background-image: url("https://media.istockphoto.com/photos/man-using-calculator-accounting-calculating-cost-economic-bills-with-picture-id1163111044?b=1&k=6&m=1163111044&s=170667a&w=0&h=xodTKQPMuJCiniyJRYIa-iQFSjYjTcmISsVeTMOxk74=");
+      height: 100vh;
+      background-position: center;
+      background-repeat: no-repeat;
+      background-size: cover;
+     
+  }

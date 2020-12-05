@@ -1,0 +1,53 @@
+#services{
+    background: whitesmoke;
+    padding-top: 70px;
+    padding-bottom: 60px;
+}
+.services-title{
+    text-align: center;
+    font-size: 40px;
+    font-weight: 700;
+}
+.services-detail{
+    padding: 40px;
+
+}
+.services-selection{
+    padding: 5px;
+    margin-top: 40px;
+    background: lightgrey;
+    border: 2px solid lightseagreen;
+    border-radius: 8px;
+    box-shadow: 0 15px 30px rgba(102, 113, 228, 0.13);
+}
+.services-icon{
+    font-size: 30px;
+    margin: 20px auto;
+    padding: 20px ;
+    height: 80px;
+    width: 80px;
+    background:white;
+    border-radius: 50%;
+}
+.srvices-description p:nth-child(1){
+    font-size: 20px;
+    font-weight: 700;
+    padding-bottom: 10px;
+}
+.services-description p:nth-child(2){
+    font-size: 14px;
+    font-weight: 400;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-bottom: 20px;
+    color: black;
+}
+.services-selection:hover .services-icon{
+    color: black;
+    background: lightseagreen;
+    transition: 1s;
+}
+.services-selection:hover{
+    box-shadow: 0 15px 30px rgb(102,113,228,0.50);
+    transition: 1s;
+}

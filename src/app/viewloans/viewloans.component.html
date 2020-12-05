@@ -1,0 +1,47 @@
+<br>
+<br>
+<br>
+<body>
+
+
+
+<h4 class="mt-5 mb-5 col-md-4 text-center text-success bg-dark" *ngIf="msg">{{msg}}</h4>
+
+<h2 style="text-align: center;color: blue;background-color:white">Customer Details</h2>
+
+<div class="mt-4 mb-3 col-md-2 offset-4 float-right ">
+  <input type="search" name="search" id="search" placeholder="Enter app id or loan type Search" [(ngModel)]="search" class="form-control">
+</div>
+<table class="table book-class table-bordered table-striped table-light mt-5 mb-2 col-md-2 offset-1">
+    <thead style="color:blue">
+      <tr>
+        <th scope="col">APPLICATION <br>ID</th>
+        <th scope="col">CUSTOMER<br> NAME</th>
+        <th scope="col">CUSTOMER<br>PHONENO</th>
+
+        <th scope="col">CUSTOMER<br>EMAIL</th>
+        <th scope="col">ANNUAL<br>INCOME</th>
+        <th scope="col">LOANTYPE</th>
+        <th scope="col">LOAN <br>AMOUNT</th>
+        <th scope="col">ASSURER <br>NAME</th>
+        <th scope="col">ASSURER <br>PHONENO</th>
+      </tr>
+    </thead>
+    <tbody style="text-align: center;">
+      <tr *ngFor="let loan of Loans.customer | filter: search">
+        <td style="text-align: center;">{{loan.applicationId}}</td>
+        <td style="text-align: center;">{{loan.customerName}}</td>
+        <td style="text-align: center;">{{loan.customerPhoneNo}}</td>
+        <td style="text-align: center;">{{loan.email}}</td>
+        <td style="text-align: center;">{{loan.annualIncome}}</td>
+        <td style="text-align: center;">{{loan.loanType}}</td>
+        <td style="text-align: center;">{{loan.loanAmount}}</td>
+        <td style="text-align: center;">{{loan.assurerName}}</td>
+        <td style="text-align: center;">{{loan.assurerContactNumber}}</td>  
+      </tr>
+    </tbody>
+   
+  </table>
+  </body>
+ 
+ 
